@@ -21,10 +21,15 @@ npm install
 npx hardhat compile
 ```
 
-## Test (optional but recommended)
+## Test
 
 ```bash
 npx hardhat test
+```
+
+## Coverage
+```bash
+npx hardhat coverage
 ```
 
 ## Deploy locally

@@ -4,6 +4,7 @@ import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { COUNTER_ABI } from "@/lib/contract";
 import { useAppConfig } from "@/lib/useAppConfig";
+import {useEffect} from "react";
 
 export function CounterWidget() {
   const { address, isConnected } = useAccount();
@@ -30,14 +31,23 @@ export function CounterWidget() {
     data: decrementTxHash,
   } = useWriteContract();
 
-  useWaitForTransactionReceipt({
-    hash: incrementTxHash,
-    onSuccess: () => refetchCount(),
-  });
-  useWaitForTransactionReceipt({
-    hash: decrementTxHash,
-    onSuccess: () => refetchCount(),
-  });
+    const incReceipt = useWaitForTransactionReceipt({
+        hash: incrementTxHash,
+        query: { enabled: Boolean(incrementTxHash) },
+    });
+
+    const decReceipt = useWaitForTransactionReceipt({
+        hash: decrementTxHash,
+        query: { enabled: Boolean(decrementTxHash) },
+    });
+
+    useEffect(() => {
+        if (incReceipt.isSuccess) refetchCount();
+    }, [incReceipt.isSuccess, refetchCount]);
+
+    useEffect(() => {
+        if (decReceipt.isSuccess) refetchCount();
+    }, [decReceipt.isSuccess, refetchCount]);
 
   const isTxPending = isIncrementPending || isDecrementPending;
 

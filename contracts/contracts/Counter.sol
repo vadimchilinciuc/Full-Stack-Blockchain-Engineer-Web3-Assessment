@@ -11,19 +11,26 @@ pragma solidity ^0.8.20;
  *
  * A reference implementation is provided below. You may replace it with your own.
  */
+
+/*
+I used a slightly different version to reduce gas usage:
+- external: these functions are only meant to be called from outside the contract
+- unchecked: decrement() is protected by a require, so the built-in underflow check would be redundant
+*/
+
 contract Counter {
     uint256 private _count;
 
-    function increment() public {
-        _count += 1;
+    function increment() external {
+        unchecked { _count += 1; }
     }
 
-    function decrement() public {
+    function decrement() external {
         require(_count > 0, "Counter: underflow");
-        _count -= 1;
+        unchecked { _count -= 1; }
     }
 
-    function getCount() public view returns (uint256) {
+    function getCount() external view returns (uint256) {
         return _count;
     }
 }
