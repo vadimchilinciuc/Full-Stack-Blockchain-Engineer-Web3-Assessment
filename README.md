@@ -10,8 +10,6 @@ You will build a minimal **decentralized application (dApp)** that includes:
 2. **Node.js backend** – A REST API that serves dApp config (contract address, chain ID).
 3. **Web front-end** – A Next.js app that connects to a wallet and interacts with the contract (using config from the backend or env).
 
-We expect this to take **about 1 day**. Focus on clean code, correctness, and a working flow rather than extra features.
-
 ## Prerequisites
 
 - Node.js 18+
@@ -49,16 +47,3 @@ We expect this to take **about 1 day**. Focus on clean code, correctness, and a 
    - Any design or trade-off decisions you made.
    - What you would improve with more time.
 
-## Submission
-
-- Create a **public** Git repository (e.g. on GitHub).
-- Push your solution to that repository (you may copy this assessment content into a new repo or fork and push your changes).
-- Share the **GitHub link** to your repo as instructed in your application (e.g. in the job application form or via the contact provided).
-
-## Questions
-
-If anything is unclear, email the contact provided in your application. We’re happy to clarify requirements or tooling.
-
-Good luck, and we look forward to seeing your work.
-
-— DecryptCode INC Engineering
