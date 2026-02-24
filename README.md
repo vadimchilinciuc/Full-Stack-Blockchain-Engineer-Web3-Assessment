@@ -1,4 +1,4 @@
-# Full Stack Blockchain Engineer (Web3) – Take-Home Assessment
+# Full Stack Blockchain Engineer (Web3) – Assessment
 
 Welcome! This repository contains a practical assessment for the **Full Stack Blockchain Engineer** role at DecryptCode INC. Complete the tasks below and submit your solution as instructed in your application.
 
